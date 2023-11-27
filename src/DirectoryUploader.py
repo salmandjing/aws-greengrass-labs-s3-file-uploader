@@ -117,8 +117,8 @@ class DirectoryUploader:
                     files = glob.glob(self.__pathname)
                     files.sort(key=os.path.getmtime)
                     if(len(files) > 0):
-                        #remove most recent file as it is considerred the active file
-                        self.__logger.info(f'The current active file is : {files.pop()}')
+                        # Set recent file as active. We are assuming no editing will be happening to files. 
+                        self.__logger.info(f'The current active file is : {files}')
                     fileset = set(files) - self.__filesProcessed
                     
                     if(len(fileset) == 0):
